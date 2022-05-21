@@ -12,9 +12,10 @@ CREATE TABLE Room (
 CREATE TABLE Class (
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(50),
-	year VARCHAR(50),
+	year YEAR,
 	term VARCHAR(50),
-	time VARCHAR(50),
+	start_time TIME,
+	end_time TIME,
 	room_id INT NOT NULL, -- maybe could be NULL since online classes idk
 	professor_id INT NOT NULL,
 	PRIMARY KEY (id),
