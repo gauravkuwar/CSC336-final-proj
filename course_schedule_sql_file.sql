@@ -3,43 +3,49 @@ CREATE USER 'username'@'localhost' IDENTIFIED BY 'P@33W0rd';
 
 
 CREATE TABLE Room (
-	id INT NOT NULL AUTO_INCREMENT,
+	room_id INT NOT NULL AUTO_INCREMENT UNIQUE,
 	room_num VARCHAR(50),
 	building_name VARCHAR(50),
-	PRIMARY KEY (id)
+	PRIMARY KEY (room_id)
 );
 
 CREATE TABLE Professor (
-	id INT NOT NULL AUTO_INCREMENT,
+	professor_id INT NOT NULL AUTO_INCREMENT UNIQUE,
 	first_name VARCHAR(50),
 	last_name VARCHAR(50),
-	PRIMARY KEY (id)
+	PRIMARY KEY (professor_id)
 );
 
-CREATE TABLE Class (
-	id INT NOT NULL AUTO_INCREMENT,
-	year YEAR,
-	term VARCHAR(50), -- only SPRING, FALL, SUMMER and WINTER
+-- assume every term one room goes to one section.
+CREATE TABLE ClassSection (
+	section_id INT NOT NULL AUTO_INCREMENT UNIQUE, -- like a section id
 	course_id INT,
-	start_time TIME, -- constraints for diff class in same room at same time
-	end_time TIME,
-	room_id INT NOT NULL, -- maybe could be NULL since online classes idk
+	year YEAR,
+	term VARCHAR(10) CHECK (term in "SPRING", "FALL", "SUMMER" and "WINTER"),
+	room_id INT NOT NULL,
 	professor_id INT NOT NULL,
-	PRIMARY KEY (id, year, term),
-	FOREIGN KEY (room_id) REFERENCES Room(id),
-	FOREIGN KEY (professor_id) REFERENCES Professor(id),
-	FOREIGN KEY (course_id) REFERENCES Course(id)
+	PRIMARY KEY (section_id),
+	FOREIGN KEY (room_id) REFERENCES Room(room_id),
+	FOREIGN KEY (professor_id) REFERENCES Professor(professor_id),
+	FOREIGN KEY (course_id) REFERENCES Course(course_id)
 );
 
 CREATE TABLE Course ( -- 1, SWE/CSC322
-	id INT NOT NULL AUTO_INCREMENT,
-	name VARCHAR(50)
+	course_id INT NOT NULL AUTO_INCREMENT UNIQUE,
+	course_num INT NOT NULL, -- 336, 322 in CSC
+	department VARCHAR(50), -- like CSC, ANTH
+	title VARCHAR(50),
+	PRIMARY KEY (course_num, department)
 );
 
 INSERT INTO Room VALUES
 	(1, "A");
 
 SELECT * FROM Room;
+
+-- DROP TABLE Course;
+-- DROP TABLE Professor;
+-- DROP TABLE ClassSection;
 
 
 
