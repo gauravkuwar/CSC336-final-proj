@@ -21,7 +21,7 @@ CREATE TABLE ClassSection (
 	section_id INT NOT NULL AUTO_INCREMENT UNIQUE, -- like a section id
 	course_id INT,
 	year YEAR,
-	term VARCHAR(10) CHECK (term in "SPRING", "FALL", "SUMMER" and "WINTER"),
+	term VARCHAR(10) CHECK (term in ("SPRING", "FALL", "SUMMER", "WINTER")),
 	room_id INT NOT NULL,
 	professor_id INT NOT NULL,
 	PRIMARY KEY (section_id),
