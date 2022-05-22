@@ -6,8 +6,8 @@ CREATE USER 'username'@'localhost' IDENTIFIED BY 'P@33W0rd';
 
 CREATE TABLE Room (
 	room_id INT NOT NULL AUTO_INCREMENT UNIQUE,
-	room_num INT,
-	building_name VARCHAR(50),
+	room_num INT NOT NULL,
+	building_name VARCHAR(50) NOT NULL,
 	PRIMARY KEY (room_id)
 );
 
@@ -21,7 +21,7 @@ CREATE TABLE Professor (
 CREATE TABLE Course ( -- 1, SWE/CSC322
 	course_id INT NOT NULL AUTO_INCREMENT UNIQUE,
 	course_num INT NOT NULL, -- 336, 322 in CSC
-	department VARCHAR(50), -- like CSC, ANTH
+	department VARCHAR(50) NOT NULL, -- like CSC, ANTH
 	title VARCHAR(50), -- like, Database Systems
 	PRIMARY KEY (course_num, department)
 );
@@ -34,9 +34,9 @@ CREATE TABLE Course ( -- 1, SWE/CSC322
 CREATE TABLE Class (
 	section_id INT NOT NULL,
 	room_id INT NOT NULL,
-	course_id INT,
-	year YEAR,
-	term VARCHAR(10) CHECK (term in ("SPRING", "FALL", "SUMMER", "WINTER")),
+	course_id INT NOT NULL,
+	year YEAR NOT NULL,
+	term VARCHAR(10) NOT NULL CHECK (term in ("SPRING", "FALL", "SUMMER", "WINTER")),
 	professor_id INT NOT NULL,
 	start_time TIME,
 	end_time TIME,
