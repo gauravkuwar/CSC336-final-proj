@@ -83,10 +83,10 @@ GRANT DELETE ON `course_schedule`.`Professor` TO 'username'@'localhost';
 GRANT UPDATE ON `course_schedule`.`Professor` TO 'username'@'localhost';
 
 -- priviliges for Professor
-GRANT SELECT ON `course_schedule`.`Professor` TO 'username'@'localhost';
-GRANT INSERT ON `course_schedule`.`Professor` TO 'username'@'localhost';
-GRANT DELETE ON `course_schedule`.`Professor` TO 'username'@'localhost';
-GRANT UPDATE ON `course_schedule`.`Professor` TO 'username'@'localhost';
+GRANT SELECT ON `course_schedule`.`Course` TO 'username'@'localhost';
+GRANT INSERT ON `course_schedule`.`Course` TO 'username'@'localhost';
+GRANT DELETE ON `course_schedule`.`Course` TO 'username'@'localhost';
+GRANT UPDATE ON `course_schedule`.`Course` TO 'username'@'localhost';
 
 -- SHOW GRANTS FOR 'username'@'localhost';
 
