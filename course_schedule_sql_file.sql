@@ -41,7 +41,7 @@ CREATE TABLE Class (
 	start_time TIME,
 	end_time TIME,
 	days_of_the_week VARCHAR(6), -- MTWRFS = monday to saturday
-	PRIMARY KEY (section_id, year, term, room_id),
+	PRIMARY KEY (section_id, course_id, room_id, year, term),
 	FOREIGN KEY (room_id) REFERENCES Room(room_id),
 	FOREIGN KEY (professor_id) REFERENCES Professor(professor_id),
 	FOREIGN KEY (course_id) REFERENCES Course(course_id)
