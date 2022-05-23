@@ -1,4 +1,4 @@
-# CSC336-final-proj
+# Course Schedule Database System
 Final Project for CSC336 - Database Systems class (Spring 2022)
 
 Authors: Gaurav Kuwar, Usman Abbas, Zibin Luo
