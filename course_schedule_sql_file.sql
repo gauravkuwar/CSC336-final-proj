@@ -1,3 +1,11 @@
+-- This file contains all the SQL quries need to create users
+-- create tables, and give users priviliges.
+
+-- Authors: Usman Abbas, Gaurav Kuwar, Zibin Luo
+-- CSC 336 - Database Systems (Spring 2022)
+-- May 2022
+
+
 USE course_schedule;
 
 CREATE USER 'username'@'localhost' IDENTIFIED BY 'P@33W0rd';
@@ -41,10 +49,11 @@ CREATE TABLE Class (
 	start_time TIME,
 	end_time TIME,
 	days_of_the_week VARCHAR(6), -- MTWRFS = monday to saturday
-	PRIMARY KEY (section_id, course_id, room_id, year, term),
+	PRIMARY KEY (section_id, course_id, year, term),
 	FOREIGN KEY (room_id) REFERENCES Room(room_id),
 	FOREIGN KEY (professor_id) REFERENCES Professor(professor_id),
-	FOREIGN KEY (course_id) REFERENCES Course(course_id)
+	FOREIGN KEY (course_id) REFERENCES Course(course_id),
+	UNIQUE(section_id, course_id, year, term, room_id)
 );
 
 
@@ -54,7 +63,7 @@ CREATE TABLE Class (
 -- INSERT INTO Room (room_num, building_name) VALUES (1, "NAC");
 -- INSERT INTO Professor (first_name, last_name) VALUES ("A", "B");
 
--- INSERT INTO Class VALUES 
+-- INSERT INTO Class VALUES
 -- 	(0, 1, 1, "2022", "SPRING", 1, "12:00:00", "14:00:00", "TR");
 
 
@@ -94,3 +103,4 @@ GRANT UPDATE ON `course_schedule`.`Course` TO 'username'@'localhost';
 -- DROP TABLE Course;
 -- DROP TABLE Professor;
 -- DROP TABLE Room;
+-- DROP USER 'username'@'localhost';

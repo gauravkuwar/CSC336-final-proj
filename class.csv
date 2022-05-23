@@ -1,0 +1,6 @@
+﻿section_id,room_id,course_id,year,term,professor_id,start_time,end_time,days_of_the_week
+0,1,1,2022,SPRING,1,12:00:00,14:00:00,TR
+1,2,1,2022,SUMMER,3,14:00:00,15:30:00,TH
+3,2,2,2019,WINTER,2,8:00:00,10:00:00,TH
+4,4,4,2023,FALL,5,9:00:00,11:00:00,MO
+5,5,4,2021,FALL,4,8:30:00,10:30:00,TR
