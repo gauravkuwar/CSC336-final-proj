@@ -1,9 +1,11 @@
 # CSC336-final-proj
 Final Project for CSC336 - Database Systems class (Spring 2022)
 
-What we have to do:
+Authors: Gaurav Kuwar, Usman Abbas, Zibin Luo
 
-- make sql file to make user, create tables, grant the user (select, insert, delete, update) priviliges for the tables
-- make E-R diagram
-- make python script with modules (select, insert, delete, update) for each table and populate database with csv file
-- make csv file
+Note: We provided the HTML output of the Jupyter notebook with the output of all the functions, and how the relations were changed by the function.
+
+The main objective of this project was to create a relational database based on a specified topic of interest, we choose the Course Schedule topic since we are currently students and this topic relate to us strongly. 
+
+So, we created the database course_schedule based on the E-R Diagram, with Relations Room, Professor, Course and Class, and we further discuss the logic of the database in depth in our Project Report. Then we used Jupyter Notebook and Python, to externally connect to the database, and build various functions, to SELECT, INSERT, UPDATE and DELETE records from the Relations.
+
